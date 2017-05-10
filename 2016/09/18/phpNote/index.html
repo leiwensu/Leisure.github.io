@@ -1,0 +1,766 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/wills/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/wills/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/wills/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/wills/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="php支持8种原始数据类型
+
+
+4种基本类型：(1) integer(整型)(2) float/double(浮点型)(3) string(字符串)(4) boolean(布尔型)  
+
+2种复合类型：(5) array(数组)(6) object(对象)  
+
+2种特殊类型：(7) resource(资源)(8) NULL  
+
+
+2. php中不是只有false值才为假，以下8种情况也为fa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP学习笔记">
+<meta property="og:url" content="https://leiwensu.github.io/wills/2016/09/18/phpNote/index.html">
+<meta property="og:site_name" content="Wills's blogs">
+<meta property="og:description" content="php支持8种原始数据类型
+
+
+4种基本类型：(1) integer(整型)(2) float/double(浮点型)(3) string(字符串)(4) boolean(布尔型)  
+
+2种复合类型：(5) array(数组)(6) object(对象)  
+
+2种特殊类型：(7) resource(资源)(8) NULL  
+
+
+2. php中不是只有false值才为假，以下8种情况也为fa">
+<meta property="og:updated_time" content="2016-12-19T09:51:28.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP学习笔记">
+<meta name="twitter:description" content="php支持8种原始数据类型
+
+
+4种基本类型：(1) integer(整型)(2) float/double(浮点型)(3) string(字符串)(4) boolean(布尔型)  
+
+2种复合类型：(5) array(数组)(6) object(对象)  
+
+2种特殊类型：(7) resource(资源)(8) NULL  
+
+
+2. php中不是只有false值才为假，以下8种情况也为fa">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/wills/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://leiwensu.github.io/wills/2016/09/18/phpNote/"/>
+
+
+
+
+
+  <title> PHP学习笔记 | Wills's blogs </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cee50df2052a8a7450182db30db0b563";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/wills/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wills's blogs</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/wills/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/wills/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/wills/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/wills/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://leiwensu.github.io/wills/wills/2016/09/18/phpNote/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wills">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/wills/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wills's blogs">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wills's blogs" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-18T00:00:00+08:00">
+                2016-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wills/categories/后端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">后端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/wills/2016/09/18/phpNote/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/phpNote/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>php支持8种原始数据类型</li>
+</ol>
+<ul>
+<li><p>4种基本类型：<br>(1) integer(整型)<br>(2) float/double(浮点型)<br>(3) string(字符串)<br>(4) boolean(布尔型)  </p>
+</li>
+<li><p>2种复合类型：<br>(5) array(数组)<br>(6) object(对象)  </p>
+</li>
+<li><p>2种特殊类型：<br>(7) resource(资源)<br>(8) NULL  </p>
+</li>
+</ul>
+<h3 id="2-php中不是只有false值才为假，以下8种情况也为false"><a href="#2-php中不是只有false值才为假，以下8种情况也为false" class="headerlink" title="2. php中不是只有false值才为假，以下8种情况也为false"></a>2. php中不是只有false值才为假，以下8种情况也为false</h3><p>(1) 整型0<br>(2) 浮点型0.0<br>(3) 字符串”0”<br>(4) 空字符串””<br>(5) 空数组<br>(6) 空对象<br>(7) null<br>(8)从空标记生成的SimpleXML对象  </p>
+<p>所有其他值都被认为是true(包括任何资源)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">echo <span class="number">0</span>==<span class="literal">false</span>;<span class="comment">//1</span></div><div class="line">echo <span class="number">0.0</span>==<span class="literal">false</span>;<span class="comment">//1</span></div><div class="line">echo <span class="string">"0"</span>==<span class="literal">false</span>;<span class="comment">//1</span></div><div class="line">echo <span class="string">""</span>==<span class="literal">false</span>;<span class="comment">//1</span></div><div class="line">echo array()==<span class="literal">false</span>;<span class="comment">//1</span></div><div class="line">echo <span class="literal">null</span>==<span class="literal">false</span>;<span class="comment">//1</span></div></pre></td></tr></table></figure>
+<h3 id="3-单引号和双引号的区别"><a href="#3-单引号和双引号的区别" class="headerlink" title="3. 单引号和双引号的区别"></a>3. 单引号和双引号的区别</h3><p>双引号中所包含的的变量会自动被替换成实际数值，而单引号中包含的变量则按普通字符串输出。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$a = <span class="string">'php'</span>;</div><div class="line">echo <span class="string">'$a'</span>;<span class="comment">//'$a'</span></div><div class="line">echo <span class="string">"$a"</span><span class="comment">//'php'</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-声明一个数组"><a href="#4-声明一个数组" class="headerlink" title="4. 声明一个数组"></a>4. 声明一个数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$arr = array(</div><div class="line">    <span class="string">'name'</span> =&gt; <span class="string">'phpchina'</span>,</div><div class="line">    <span class="string">'url'</span> =&gt; <span class="string">'www.phpchina.com'</span>,</div><div class="line">    <span class="string">'age'</span> = &gt; <span class="number">13</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="5-声明一个对象"><a href="#5-声明一个对象" class="headerlink" title="5. 声明一个对象"></a>5. 声明一个对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PHPChina</span></span>&#123;</div><div class="line">    private $name = <span class="string">'phpchina'</span>;</div><div class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        echo <span class="string">'Hi'</span> . $<span class="keyword">this</span>-&gt;name;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">$php = <span class="keyword">new</span> PHPChina();</div><div class="line">var_dump($php);</div></pre></td></tr></table></figure>
+<h3 id="6-输出null的情况"><a href="#6-输出null的情况" class="headerlink" title="6. 输出null的情况"></a>6. 输出null的情况</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$a = <span class="literal">null</span>;</div><div class="line">$b;</div><div class="line">$c = <span class="number">10</span>;</div><div class="line">unset($c);</div></pre></td></tr></table></figure>
+<ul>
+<li>unset()—— 用来销毁变量</li>
+<li>is_null()—— 判断某个变量是否为null，返回一个boolean值，如果为null值，那么输出true，否则输出false</li>
+</ul>
+<h3 id="7-数据类型转换"><a href="#7-数据类型转换" class="headerlink" title="7. 数据类型转换"></a>7. 数据类型转换</h3><p>两种方式：<br>(1) 在需要转换类型的变量前加上括号括起来的数据类型则名称即可：(int)$a<br>(2) 使用settype()函数来实现：settype($a,’int’); //将变量a转换成整型类型<br>基本转换：<br>(1) null、0和未赋值的变量或数组都会转换为false<br>(2) 当boolean类型转换为int类型时，true转换为1，false转换为0<br>(3) 字符串转换成int类型时，字符串如果以数字开头就截取到非数字部分，否则输出0；其他数据类型转换为object类型时，其中名为scalar的成员变量将包含原变量的值<br>强制转换：<br>前面转换方式的第一种就是强制转换。</p>
+<h3 id="8-定义常量"><a href="#8-定义常量" class="headerlink" title="8. 定义常量"></a>8. 定义常量</h3><p>常量在使用前必须先定义，常量的名字一般使用大写字母组合，不建议使用小写字母。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bool define ( string $name , mixed $value [, bool $case_insensitive = <span class="literal">false</span> ] )</div></pre></td></tr></table></figure></p>
+<p>最后一个参数可选，表示常量是否区分大小写，如果设定为true，表示不区分大小写，默认为false,即默认是区分大小写的。<br>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'NAME'</span>,<span class="string">'lei'</span>);</div></pre></td></tr></table></figure></p>
+<p>defined() — 检查某个名称的常量是否存在，语法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bool defined ( string $name )</div></pre></td></tr></table></figure></p>
+<h3 id="9-系统默认常量-预定义常量"><a href="#9-系统默认常量-预定义常量" class="headerlink" title="9. 系统默认常量(预定义常量)"></a>9. 系统默认常量(预定义常量)</h3><p><strong>__FILE__</strong>—— 文件的完整路径和文件名<br><strong>__LINE__</strong>—— 当前行号<br><strong>__CLASS__</strong>—— 类的名称<br><strong>__METHOD__</strong>—— 类的方法名<br><strong>PHP_VERSION</strong>—— php的版本<br><strong>PHP_OS</strong>—— 运行php程序的操作系统<br><strong>DIRECTORY_SEPARATOR</strong>—— 返回操作系统的分隔符 windows下返回“\”，linux下返回“/”  </p>
+<h3 id="10-php变量"><a href="#10-php变量" class="headerlink" title="10. php变量"></a>10. php变量</h3><p>变量名是区分大小写的，一个有效的变量名由字母或者下划线开头，后面跟上任意数量的字母，数字，或者下划线。按照正常的正则表达式，它将被表述为：’[a-zA-Z<em>\x7f-\xff][a-zA-Z0-9</em>\x7f-\xff]*’。<br>不需要预先定义，可以直接在使用时定义变量。同时在定义变量时，也可以不用初始化变量。<br>  给变量赋值有两种方式，分别是传值赋值和引用赋值：<br>(1)传值赋值，是使用“=”直接将一个变量（或表达式）的值赋给变量，等号两边的变量互不影响，任何一个变量值的变化都不会影响到另一个变量。<br>(2)引用赋值同样也是使用“=”将一个变量的值赋给另一个变量，但是需要在等号右边的变量前面加上一个”&amp;”符号。在使用引用赋值的时候，两个变量将会指向内存中同一存储空间。因此任何一个变量的变化都会引起另外一个变量的变化。  </p>
+<p>变量的作用域：<br>（1）局部变量<br>（2）全局变量<br>（3）静态变量  </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/wills/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/wills/2016/09/12/panel/" rel="next" title="后台管理系统的主布局框架（告别传统的iframe）">
+                <i class="fa fa-chevron-left"></i> 后台管理系统的主布局框架（告别传统的iframe）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/wills/2016/09/23/resources/" rel="prev" title="前端实用工具网站">
+                前端实用工具网站 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/18/phpNote/"
+           data-title="PHP学习笔记" data-url="https://leiwensu.github.io/wills/wills/2016/09/18/phpNote/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/wills/images/avatar.png"
+               alt="Wills" />
+          <p class="site-author-name" itemprop="name">Wills</p>
+          <p class="site-description motion-element" itemprop="description">wills blogs，前端开发博客，技术博客，前端学习笔记</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/wills/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/wills/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/wills/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leiwensu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-php中不是只有false值才为假，以下8种情况也为false"><span class="nav-number">1.</span> <span class="nav-text">2. php中不是只有false值才为假，以下8种情况也为false</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-单引号和双引号的区别"><span class="nav-number">2.</span> <span class="nav-text">3. 单引号和双引号的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-声明一个数组"><span class="nav-number">3.</span> <span class="nav-text">4. 声明一个数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-声明一个对象"><span class="nav-number">4.</span> <span class="nav-text">5. 声明一个对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-输出null的情况"><span class="nav-number">5.</span> <span class="nav-text">6. 输出null的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-数据类型转换"><span class="nav-number">6.</span> <span class="nav-text">7. 数据类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-定义常量"><span class="nav-number">7.</span> <span class="nav-text">8. 定义常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-系统默认常量-预定义常量"><span class="nav-number">8.</span> <span class="nav-text">9. 系统默认常量(预定义常量)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-php变量"><span class="nav-number">9.</span> <span class="nav-text">10. php变量</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wills</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/wills/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/wills/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/wills/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/wills/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/wills/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/wills/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/wills/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/wills/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leiwensu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/wills/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/wills/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

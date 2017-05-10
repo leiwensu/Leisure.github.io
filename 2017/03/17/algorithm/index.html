@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/wills/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/wills/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/wills/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/wills/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="js写冒泡排序1234567891011121314151617function bubbleSort(arr)&amp;#123;  var arrLen = arr.length;  if(arrLen&amp;lt;=1)&amp;#123;    return arr;  &amp;#125;else&amp;#123;    for(var i = 0;i &amp;lt; arrLen-1;i++)&amp;#123;      for(v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端算法题">
+<meta property="og:url" content="https://leiwensu.github.io/wills/2017/03/17/algorithm/index.html">
+<meta property="og:site_name" content="Wills's blogs">
+<meta property="og:description" content="js写冒泡排序1234567891011121314151617function bubbleSort(arr)&amp;#123;  var arrLen = arr.length;  if(arrLen&amp;lt;=1)&amp;#123;    return arr;  &amp;#125;else&amp;#123;    for(var i = 0;i &amp;lt; arrLen-1;i++)&amp;#123;      for(v">
+<meta property="og:updated_time" content="2017-03-17T05:26:51.901Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端算法题">
+<meta name="twitter:description" content="js写冒泡排序1234567891011121314151617function bubbleSort(arr)&amp;#123;  var arrLen = arr.length;  if(arrLen&amp;lt;=1)&amp;#123;    return arr;  &amp;#125;else&amp;#123;    for(var i = 0;i &amp;lt; arrLen-1;i++)&amp;#123;      for(v">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/wills/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://leiwensu.github.io/wills/2017/03/17/algorithm/"/>
+
+
+
+
+
+  <title> 前端算法题 | Wills's blogs </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cee50df2052a8a7450182db30db0b563";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/wills/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wills's blogs</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/wills/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/wills/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/wills/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/wills/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://leiwensu.github.io/wills/wills/2017/03/17/algorithm/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wills">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/wills/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wills's blogs">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wills's blogs" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端算法题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-17T10:39:43+08:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wills/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/wills/2017/03/17/algorithm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/algorithm/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="js写冒泡排序"><a href="#js写冒泡排序" class="headerlink" title="js写冒泡排序"></a>js写冒泡排序</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> arrLen = arr.length;</div><div class="line">  <span class="keyword">if</span>(arrLen&lt;=<span class="number">1</span>)&#123;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arrLen<span class="number">-1</span>;i++)&#123;</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> j = i+<span class="number">1</span>;j&lt;arrLen;j++)&#123;</div><div class="line">        <span class="keyword">if</span>(arr[i]&gt;arr[j])&#123;</div><div class="line">          <span class="keyword">var</span> temp = arr[i];</div><div class="line">          arr[i] = arr[j];</div><div class="line">          arr[j] = temp;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="js写快速排序"><a href="#js写快速排序" class="headerlink" title="js写快速排序"></a>js写快速排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> arrLen = arr.length;</div><div class="line">  <span class="keyword">if</span>(arrLen&lt;=<span class="number">1</span>)&#123;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">var</span> left = [];</div><div class="line">    <span class="keyword">var</span> right = [];</div><div class="line">    <span class="keyword">var</span> basic = arr[<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;i &lt; arrLen; i++)&#123;</div><div class="line">      <span class="keyword">if</span>(arr[i]&lt;basic)&#123;</div><div class="line">        left.push(arr[i]);</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        right.push(arr[i]);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> quickSort(left).concat(basic,quickSort(right));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="js写二分搜素"><a href="#js写二分搜素" class="headerlink" title="js写二分搜素"></a>js写二分搜素</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">binarySearch</span>(<span class="params">data,dist,startIndex,endIndex</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> startIndex = startIndex || <span class="number">0</span>;</div><div class="line">  <span class="keyword">var</span> endIndex = endIndex || data.length<span class="number">-1</span>;</div><div class="line">  <span class="keyword">var</span> midIndex = <span class="built_in">Math</span>.floor((startIndex+endIndex)/<span class="number">2</span>);</div><div class="line">  <span class="keyword">if</span>(dist == data[midIndex])&#123;</div><div class="line">    <span class="keyword">return</span> midIndex;</div><div class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(dist &lt; data[startIndex])&#123;</div><div class="line">    <span class="keyword">return</span> binarySearch(data,dist,startIndex,midIndex<span class="number">-1</span>);</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">return</span> binarySearch(data,dist,midIndex+<span class="number">1</span>,endIndex);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniq1</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> res = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.length;i++)&#123;</div><div class="line">    <span class="keyword">if</span>(res.indexOf(arr[i])==<span class="number">-1</span>)&#123;</div><div class="line">      res.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniq2</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> json = &#123;&#125;;</div><div class="line">  <span class="keyword">var</span> res = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.length;i++)&#123;</div><div class="line">    <span class="keyword">if</span>(!json[arr[i]])&#123;</div><div class="line">      json[arr[i]] = <span class="literal">true</span>;</div><div class="line">      res.push(arr[i]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="对象深度克隆"><a href="#对象深度克隆" class="headerlink" title="对象深度克隆"></a>对象深度克隆</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> buf;</div><div class="line">  <span class="keyword">if</span>(obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</div><div class="line">    buf = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; obj.length;i++)&#123;</div><div class="line">      buf[i] = deepClone(obj[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> buf;</div><div class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(obj <span class="keyword">instanceof</span> <span class="built_in">Object</span>)&#123;</div><div class="line">    buf = &#123;&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj)&#123;</div><div class="line">      buf[k] = deepClone(obj[k]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> buf;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="斐波拉契方法"><a href="#斐波拉契方法" class="headerlink" title="斐波拉契方法"></a>斐波拉契方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">count</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(count&lt;<span class="number">0</span>)&#123;</div><div class="line">    <span class="keyword">return</span> count;</div><div class="line">  &#125;</div><div class="line"> <span class="keyword">if</span>(count &lt;= <span class="number">1</span>)&#123;</div><div class="line">   <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="keyword">var</span> first = <span class="number">1</span>;</div><div class="line"> <span class="keyword">var</span> second = <span class="number">1</span>;</div><div class="line"> <span class="keyword">var</span> third = <span class="number">0</span>;</div><div class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">2</span>; i &lt;= count;i++)&#123;</div><div class="line">   third = first + second;</div><div class="line">   first = second;</div><div class="line">   second = third;</div><div class="line"> &#125;</div><div class="line"> <span class="keyword">return</span> third;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="判断一个字符串中出现次数最多的字符，统计这个次数"><a href="#判断一个字符串中出现次数最多的字符，统计这个次数" class="headerlink" title="判断一个字符串中出现次数最多的字符，统计这个次数"></a>判断一个字符串中出现次数最多的字符，统计这个次数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCharTimes</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> json = &#123;&#125;;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; str.length;i++)&#123;</div><div class="line">    <span class="keyword">if</span>(!json[str.charAt(i)])&#123;</div><div class="line">      json[str.charAt(i)] = <span class="number">1</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      json[str.charAt(i)]++;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> max = <span class="number">0</span>;</div><div class="line">  <span class="keyword">var</span> maxIndex = <span class="string">''</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> json)&#123;</div><div class="line">    <span class="keyword">if</span>(json[i]&gt;max)&#123;</div><div class="line">      max = json[i];</div><div class="line">      maxIndex = i;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="string">"出现最多的字符是"</span>+maxIndex+<span class="string">"，次数为"</span>+max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/wills/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/wills/2017/01/09/vuejs/" rel="next" title="vuejs权威指南笔记">
+                <i class="fa fa-chevron-left"></i> vuejs权威指南笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/17/algorithm/"
+           data-title="前端算法题" data-url="https://leiwensu.github.io/wills/wills/2017/03/17/algorithm/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/wills/images/avatar.png"
+               alt="Wills" />
+          <p class="site-author-name" itemprop="name">Wills</p>
+          <p class="site-description motion-element" itemprop="description">wills blogs，前端开发博客，技术博客，前端学习笔记</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/wills/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/wills/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/wills/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/leiwensu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js写冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">js写冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js写快速排序"><span class="nav-number">2.</span> <span class="nav-text">js写快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js写二分搜素"><span class="nav-number">3.</span> <span class="nav-text">js写二分搜素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组去重"><span class="nav-number">4.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象深度克隆"><span class="nav-number">5.</span> <span class="nav-text">对象深度克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斐波拉契方法"><span class="nav-number">6.</span> <span class="nav-text">斐波拉契方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断一个字符串中出现次数最多的字符，统计这个次数"><span class="nav-number">7.</span> <span class="nav-text">判断一个字符串中出现次数最多的字符，统计这个次数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wills</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/wills/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/wills/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/wills/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/wills/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/wills/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/wills/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/wills/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/wills/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/wills/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"leiwensu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/wills/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/wills/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
