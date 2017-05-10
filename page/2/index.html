@@ -259,6 +259,160 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://leiwensu.github.io/wills/wills/2016/11/03/babel/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wills">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/wills/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wills's blogs">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wills's blogs" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/wills/2016/11/03/babel/" itemprop="url">
+                  babel--ES6转换成ES5!
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-03T00:00:00+08:00">
+                2016-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wills/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/wills/2016/11/03/babel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/03/babel/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Babel是一个广泛使用的ES6转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。这意味着，你可以用ES6的方式编写程序，又不用担心现有环境是否支持。</p>
+<h2 id="转换步骤"><a href="#转换步骤" class="headerlink" title="转换步骤"></a>转换步骤</h2><h3 id="1-配置文件-babelrc"><a href="#1-配置文件-babelrc" class="headerlink" title="1. 配置文件.babelrc"></a>1. 配置文件.babelrc</h3><p>Babel的配置文件是.babelrc，存放在项目的根目录下。该文件用来设置转码规则和插件，基本格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"presets"</span>:[],</div><div class="line">    <span class="string">"plugins"</span>:[]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>presets字段设定转码规则，官方提供以下规则集，你可以根据需要安装。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># ES2015转码规则</div><div class="line">$ npm install --save-dev babel-preset-es2015</div><div class="line"></div><div class="line"># react转码规则</div><div class="line">$ npm install --save-dev babel-preset-react</div><div class="line"></div><div class="line">#ES7不同阶段语法提案的转码规则（共有4个阶段），选装一个</div><div class="line">$ npm install --save-dev babel-preset-stage-0</div><div class="line">$ npm install --save-dev babel-preset-stage-1</div><div class="line">$ npm install --save-dev babel-preset-stage-2</div><div class="line">$ npm install --save-dev babel-preset-stage-3</div></pre></td></tr></table></figure>
+<p>然后将这些规则加入.babelrc<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"presets"</span>:[</div><div class="line">        <span class="string">"es2015"</span>,</div><div class="line">        <span class="string">"react"</span>,</div><div class="line">        <span class="string">"stage-2"</span>,</div><div class="line">    ],</div><div class="line">    <span class="string">"plugins"</span>:[]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-命令行转码babel-cli"><a href="#2-命令行转码babel-cli" class="headerlink" title="2. 命令行转码babel-cli"></a>2. 命令行转码babel-cli</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --global babel-cli</div></pre></td></tr></table></figure>
+<p>基本用法如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># 转码结果输出到标准输出</div><div class="line">$ babel example.js</div><div class="line"></div><div class="line"># 转码结果写入一个文件</div><div class="line"># --out-file 或 -o 参数指定输出文件</div><div class="line"></div><div class="line">$ babel example.js --out-file compiled.js</div><div class="line"># 或者</div><div class="line">$ babel example.js -o compiled.js</div><div class="line"></div><div class="line"># 整个目录转码</div><div class="line"># --out-dir 或 -d 参数指定输出目录</div><div class="line">$ babel src --out-dir lib</div><div class="line"># 或者</div><div class="line">$ babel src -d lib</div><div class="line"></div><div class="line"># -s 参数生成source map 文件</div><div class="line">$ babel src -d lib -s</div></pre></td></tr></table></figure>
+<p>上面的代码是在全局环境下，进行Babel转码。这意味着，如果项目要运行，全局环境必须要有babel,也就是说项目产生了对环境的依赖，另一方面，这样做也无法支持不同项目使用不同版本的Babel。</p>
+<p>一个解决办法是将babel-cli安装在项目之中。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev babel-cli</div></pre></td></tr></table></figure></p>
+<p>然后改写package.json。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"devDepandencies"</span>:&#123;</div><div class="line">        <span class="string">"babel-cli"</span>:<span class="string">"^6.0.0"</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        <span class="string">"build"</span>:<span class="string">"babel src -d lib"</span></div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>转码的时候，就执行下面的命令。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run build</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://leiwensu.github.io/wills/wills/2016/09/23/resources/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -978,6 +1132,184 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://leiwensu.github.io/wills/wills/2016/09/02/note/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wills">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/wills/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wills's blogs">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wills's blogs" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/wills/2016/09/02/note/" itemprop="url">
+                  编程过程中的一些笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-02T00:00:00+08:00">
+                2016-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/wills/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/wills/2016/09/02/note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/02/note/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这是一些我在前端代码编写过程中的一些笔记，有一些平常经常会遇到的，但是又容易忘记，所以做了以下笔记。</p>
+<h3 id="1-关于表格"><a href="#1-关于表格" class="headerlink" title="1. 关于表格"></a>1. 关于表格</h3><p>在一些数据的展示方面通常都要使用表格，这时候，表格的大小样式方面显得非常重要。因为一旦表格大小不合适，容易造成变形。以下是一般表格的模板：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;table class="dp-tab"&gt;</div><div class="line">    &lt;thead&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;th width="65"&gt; 店铺类型&lt;/th&gt;</div><div class="line">            &lt;th width="120"&gt;店铺名称&lt;/th&gt;</div><div class="line">            &lt;th width="100"&gt;提交日期&lt;/th&gt;</div><div class="line">            &lt;th width="100"&gt;申请成功日期&lt;/th&gt;</div><div class="line">            &lt;th width="60"&gt;状态&lt;/th&gt;</div><div class="line">            &lt;th&gt;备注&lt;/th&gt;</div><div class="line">            &lt;th width="50"&gt;操作&lt;/th&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    &lt;/thead&gt;</div><div class="line">    &lt;tbody&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;td&gt;@item.ShopTypeName&lt;/td&gt;</div><div class="line">            &lt;td&gt;@item.ShopName&lt;/td&gt;</div><div class="line">            &lt;td&gt;&lt;/td&gt;</div><div class="line">            &lt;td&gt;&lt;/td&gt;</div><div class="line">            &lt;td class="dp-red"&gt;@item.ApplyStatus&lt;/td&gt;</div><div class="line">            &lt;td&gt;@item.Remark&lt;/td&gt;</div><div class="line">            &lt;td&gt;&lt;a href="/shop/input&gt;详情&lt;/a&gt;&lt;/td&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    &lt;/tbody&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+<p>如上图所示，先把能确定最大大小的单元格宽度全部固定下来，剩下一个可能内容比较多且宽度不固定的单元格不加宽度，使其自适应。</p>
+<h3 id="2-使用z-index改变元素层级"><a href="#2-使用z-index改变元素层级" class="headerlink" title="2. 使用z-index改变元素层级"></a>2. 使用z-index改变元素层级</h3><p>使用z-index改变元素层级时，要对该元素加定位，一般使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">position:relative</div></pre></td></tr></table></figure>
+<h3 id="3-清除浮动"><a href="#3-清除浮动" class="headerlink" title="3. 清除浮动"></a>3. 清除浮动</h3><p>在平常我们coding时候经常会发生子元素浮动而引起父级元素不能完全撑开的状况，解决办法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 对父级元素添加以下样式：</div><div class="line">.parent&#123;</div><div class="line">   <span class="attr">overflow</span>:hidden;</div><div class="line">   zoom:<span class="number">1</span>; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">2.</span> 对父级元素添加以下样式：</div><div class="line">.parent:after&#123;</div><div class="line">    <span class="attr">content</span>: <span class="string">"."</span>;</div><div class="line">    display: block;</div><div class="line">    height: <span class="number">0</span>;</div><div class="line">    clear: both;</div><div class="line">    visibility: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-文本模糊效果"><a href="#4-文本模糊效果" class="headerlink" title="4. 文本模糊效果"></a>4. 文本模糊效果</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.blur &#123;</div><div class="line">   <span class="attr">color</span>: transparent;</div><div class="line">   text-shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-jquery遍历函数"><a href="#5-jquery遍历函数" class="headerlink" title="5. jquery遍历函数"></a>5. jquery遍历函数</h3><ol>
+<li>filter(expression)<br>过滤掉与expression参数值指定的标准不匹配（返回值为false）的元素集合，例子：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'td'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.innerHTML.match(<span class="regexp">/^\d+$/</span>);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>map(callback)<br>将元素集合中的每一个元素调用回调函数，并将返回值收集到jQuery对象实例中，例子：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> allIds = $(<span class="string">'div'</span>).map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> (<span class="keyword">this</span>.id==<span class="literal">undefined</span>)?<span class="literal">null</span>:<span class="keyword">this</span>.id;</div><div class="line">    &#125;).get();</div></pre></td></tr></table></figure>
+<ol>
+<li>each(callback)<br>遍历匹配集里所有的元素，为每一个元素调用传入的迭代函数，例子：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h3 id="6-iframe的bug"><a href="#6-iframe的bug" class="headerlink" title="6. iframe的bug"></a>6. iframe的bug</h3><p>使用iframe标签时，如果iframe标签不闭合，即<iframe src="http://www.baidu.com">会导致iframe标签后面的js代码不执行，所以iframe标签最好是写成：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;iframe src=<span class="string">""</span>&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></iframe></p>
+<h3 id="7-鼠标放在图片上，图片放大显示"><a href="#7-鼠标放在图片上，图片放大显示" class="headerlink" title="7. 鼠标放在图片上，图片放大显示"></a>7. 鼠标放在图片上，图片放大显示</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> imgWid = <span class="number">0</span> ;</div><div class="line"><span class="keyword">var</span> imgHei = <span class="number">0</span> ; <span class="comment">//变量初始化</span></div><div class="line"><span class="keyword">var</span> big = <span class="number">1.1</span>;<span class="comment">//放大倍数</span></div><div class="line">$(<span class="string">'.sw-con1,.sw-con2,.sw-con3'</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>);</div><div class="line">    <span class="keyword">var</span> imgWid2 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> imgHei2 = <span class="number">0</span>;<span class="comment">//局部变量</span></div><div class="line">    imgWid = $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).width();</div><div class="line">    imgHei = $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).height();</div><div class="line">    imgWid2 = imgWid * big;</div><div class="line">    imgHei2 = imgHei * big;</div><div class="line">    $(<span class="keyword">this</span>).find(<span class="string">'img'</span>).animate(&#123;</div><div class="line">        <span class="attr">width</span>: imgWid2,</div><div class="line">        <span class="attr">height</span>: imgHei2</div><div class="line">    &#125;,<span class="string">"slow"</span></div><div class="line">    );</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).stop().animate(&#123;<span class="string">"width"</span>:imgWid,<span class="string">"height"</span>:imgHei&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="8-解决img标签间距问题"><a href="#8-解决img标签间距问题" class="headerlink" title="8. 解决img标签间距问题"></a>8. 解决img标签间距问题</h3><p>关于img标签间距问题：<br>  多个img之间有间距，包含img标签的div之间有间距块级元素包含内联元素如图片文字等时，内联元素默认是和父级元素的baseline（基线）对齐的，而baseline又和父级元素底边有一定的距离（这个距离和font有关，不一定是5px），所以以上代码的效果中不同div之间有间隙，这是因为图片与父元素的底边有距离。说到baseline呢，其实它是vertical-align属性的默认值，vertical-align属性是设置元素的垂直排列的，用来定义行内元素的基线相对于该元素所在行的基线的垂直对齐，除了baseline对齐方式之外，还可以是sub | super | top | text-top | middle | bottom | text-bottom |inherit（任何的版本的Internet Explorer （包括 IE8）都不支持属性值 “inherit”）。</p>
+<p>　　知道了问题产生的原因，就好对症下药解决问题了，其实就是要消除baseline对齐方式产生的距离。所以，<br>　　方法1:很容易想到，把对齐方式改一下不就好了，于是设置img的vertical-align属性为bottom；</p>
+<p>　　方法2:就是上文说的给父元素加上font-size:0的属性，既然这个距离和font有关，那么把字体大小设为0，总该没有距离了吧；</p>
+<p>　　方法3：可由方法二想到，既然为0可以，那把行高设的很小可不可以呢？经试验发现，本例图片大小为200px，设line-height不大于12就能够消除间隙了，鉴于这个距离一般是5px，所以可以把line-height设为5px左右；</p>
+<p>　　另外一个间隙是多个img标签的左右间隙，是由于img标签是行内元素，而事实是当行内元素之间有“回车”、“tab”、“空格”时就会出现间隙。</p>
+<p>　　所以方法就是上文提到的，去掉img标签之间所有的空格，如果又不想把所有连续的行内元素写到一行，可以多行注释，把空格回车什么的注释掉，就像下图这样；当连续的行内元素不是img时，也可以通过设置父元素的font-size为0来消除左右间隙。<br>方法四：把img变成块级元素</p>
+<h3 id="9-移动端字体设置："><a href="#9-移动端字体设置：" class="headerlink" title="9. 移动端字体设置："></a>9. 移动端字体设置：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">     font-family: <span class="string">"Helvetica Neue"</span>, Helvetica, STHeiTi, sans-serif;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//使用rem单位时，html的字体一般设置</span></div><div class="line"> @media only screen and (min-width: <span class="number">641</span>px)</div><div class="line">     html &#123;</div><div class="line">         font-size: <span class="number">125</span>%!important;</div><div class="line">     &#125;</div><div class="line"> @media only screen and (min-width: <span class="number">561</span>px)</div><div class="line">     html &#123;</div><div class="line">         font-size: <span class="number">109</span>%!important;</div><div class="line">     &#125;</div><div class="line"> @media only screen and (min-width: <span class="number">481</span>px)</div><div class="line">     html &#123;</div><div class="line">         font-size: <span class="number">94</span>%!important;</div><div class="line">     &#125;</div><div class="line"> html &#123;</div><div class="line">     font-size: <span class="number">62.5</span>%;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h3 id="10-chrome浏览器，将html网页中input-file-元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。"><a href="#10-chrome浏览器，将html网页中input-file-元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。" class="headerlink" title="10. chrome浏览器，将html网页中input [file] 元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。"></a>10. chrome浏览器，将html网页中input [file] 元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。</h3><p>解决办法：</p>
+<p>为input [file]元素添加css样式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">font-size：<span class="number">0</span>;</div><div class="line">cursor:pointer;</div></pre></td></tr></table></figure></p>
+<h3 id="11-模拟input-file-上传按钮，以及文件名获取方法如下："><a href="#11-模拟input-file-上传按钮，以及文件名获取方法如下：" class="headerlink" title="11. 模拟input[file]上传按钮，以及文件名获取方法如下："></a>11. 模拟input[file]上传按钮，以及文件名获取方法如下：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;a class="file-con" href="#"&gt;</div><div class="line">    选择文件</div><div class="line">    &lt;input id="orderFile" type="file" /&gt;</div><div class="line">&lt;/a&gt;</div><div class="line">&lt;style&gt;</div><div class="line">.file-con &#123;</div><div class="line">    vertical-align: middle;</div><div class="line">    text-align: center;</div><div class="line">    line-height: 32px;</div><div class="line">    color: #666;</div><div class="line">    text-decoration: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 80px;</div><div class="line">    height: 32px;</div><div class="line">    background: #f6f6f6;</div><div class="line">    position: relative;</div><div class="line">    overflow: hidden;</div><div class="line">    border: 1px solid #ccc;</div><div class="line">    border-radius: 5px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.file-con:hover &#123;</div><div class="line">    background: #efefef;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.file-con input &#123;</div><div class="line">    position: absolute;</div><div class="line">    right: 0;</div><div class="line">    top: 0;</div><div class="line">    opacity: 0;</div><div class="line">    filter: alpha(opacity=0);</div><div class="line">    width: 80px;</div><div class="line">    height: 32px;</div><div class="line">    outline: none;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *获取文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getFileName</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> pos1 = path.lastIndexOf(<span class="string">'/'</span>);</div><div class="line">        <span class="keyword">var</span> pos2 = path.lastIndexOf(<span class="string">'\\'</span>);</div><div class="line">        <span class="keyword">var</span> pos = <span class="built_in">Math</span>.max(pos1, pos2)</div><div class="line">        <span class="keyword">if</span> (pos &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> path;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> path.substring(pos + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="12-js判断电话号码运营商"><a href="#12-js判断电话号码运营商" class="headerlink" title="12. js判断电话号码运营商"></a>12. js判断电话号码运营商</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> isChinaMobile = <span class="regexp">/^1(3[4-9]|5[012789]|8[23478]|4[7]|7[8])\d&#123;8&#125;$/</span>; <span class="comment">//移动</span></div><div class="line"><span class="keyword">var</span> isChinaUnion = <span class="regexp">/^1(3[0-2]|5[56]|8[56]|4[5]|7[6])\d&#123;8&#125;$/</span>; <span class="comment">//联通</span></div><div class="line"><span class="keyword">var</span> isChinaTelcom = <span class="regexp">/^1(3[3])|(8[019])\d&#123;8&#125;$/</span>; <span class="comment">//电信</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">telphone</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(telphone.length !== <span class="number">11</span>)&#123;</div><div class="line">      alert(<span class="string">"未检测到正确的手机号码"</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">if</span>(isChinaMobile.test(telphone))&#123;</div><div class="line">        alert(<span class="string">"移动"</span>);</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(isChinaUnion.test(telphone))&#123;</div><div class="line">        alert(<span class="string">"联通"</span>);</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(isChinaTelcom.test(telphone))&#123;</div><div class="line">        alert(<span class="string">"电信"</span>);</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        alert(<span class="string">"未检测到正确的手机号码"</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">check(<span class="string">"1324****322"</span>);</div></pre></td></tr></table></figure>
+<p>###13. 纯css小三角形<br>html:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"dp_nav"</span>&gt;</div><div class="line">    &lt;li&gt;&lt;a href=""&gt;退出&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;<span class="regexp">/ul&gt;</span></div></pre></td></tr></table></figure></p>
+<p>样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.dp_nav</span> &#123;</div><div class="line">    <span class="attribute">display</span>:none;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">min-width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">1.5em</span>;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">    <span class="attribute">-webkit-border-radius</span>: <span class="number">6px</span>;</div><div class="line">    <span class="attribute">-moz-border-radius</span>: <span class="number">6px</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">6px</span>;</div><div class="line">    <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">-webkit-background-clip</span>: padding-box;</div><div class="line">    <span class="attribute">-moz-background-clip</span>: padding;</div><div class="line">    <span class="attribute">background-clip</span>: padding-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.dp_nav</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">border-left</span>: <span class="number">7px</span> solid transparent;</div><div class="line">    <span class="attribute">border-right</span>: <span class="number">7px</span> solid transparent;</div><div class="line">    <span class="attribute">border-bottom</span>: <span class="number">7px</span> solid <span class="number">#ccc</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: -<span class="number">7px</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">9px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.dp_nav</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">border-left</span>: <span class="number">6px</span> solid transparent;</div><div class="line">    <span class="attribute">border-right</span>: <span class="number">6px</span> solid transparent;</div><div class="line">    <span class="attribute">border-bottom</span>: <span class="number">6px</span> solid <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: -<span class="number">6px</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://leiwensu.github.io/wills/wills/2016/09/02/rule/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1162,184 +1494,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://leiwensu.github.io/wills/wills/2016/09/02/note/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Wills">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/wills/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Wills's blogs">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Wills's blogs" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/wills/2016/09/02/note/" itemprop="url">
-                  编程过程中的一些笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-02T00:00:00+08:00">
-                2016-09-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/wills/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/wills/2016/09/02/note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/02/note/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这是一些我在前端代码编写过程中的一些笔记，有一些平常经常会遇到的，但是又容易忘记，所以做了以下笔记。</p>
-<h3 id="1-关于表格"><a href="#1-关于表格" class="headerlink" title="1. 关于表格"></a>1. 关于表格</h3><p>在一些数据的展示方面通常都要使用表格，这时候，表格的大小样式方面显得非常重要。因为一旦表格大小不合适，容易造成变形。以下是一般表格的模板：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;table class="dp-tab"&gt;</div><div class="line">    &lt;thead&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;th width="65"&gt; 店铺类型&lt;/th&gt;</div><div class="line">            &lt;th width="120"&gt;店铺名称&lt;/th&gt;</div><div class="line">            &lt;th width="100"&gt;提交日期&lt;/th&gt;</div><div class="line">            &lt;th width="100"&gt;申请成功日期&lt;/th&gt;</div><div class="line">            &lt;th width="60"&gt;状态&lt;/th&gt;</div><div class="line">            &lt;th&gt;备注&lt;/th&gt;</div><div class="line">            &lt;th width="50"&gt;操作&lt;/th&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    &lt;/thead&gt;</div><div class="line">    &lt;tbody&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;td&gt;@item.ShopTypeName&lt;/td&gt;</div><div class="line">            &lt;td&gt;@item.ShopName&lt;/td&gt;</div><div class="line">            &lt;td&gt;&lt;/td&gt;</div><div class="line">            &lt;td&gt;&lt;/td&gt;</div><div class="line">            &lt;td class="dp-red"&gt;@item.ApplyStatus&lt;/td&gt;</div><div class="line">            &lt;td&gt;@item.Remark&lt;/td&gt;</div><div class="line">            &lt;td&gt;&lt;a href="/shop/input&gt;详情&lt;/a&gt;&lt;/td&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">    &lt;/tbody&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
-<p>如上图所示，先把能确定最大大小的单元格宽度全部固定下来，剩下一个可能内容比较多且宽度不固定的单元格不加宽度，使其自适应。</p>
-<h3 id="2-使用z-index改变元素层级"><a href="#2-使用z-index改变元素层级" class="headerlink" title="2. 使用z-index改变元素层级"></a>2. 使用z-index改变元素层级</h3><p>使用z-index改变元素层级时，要对该元素加定位，一般使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">position:relative</div></pre></td></tr></table></figure>
-<h3 id="3-清除浮动"><a href="#3-清除浮动" class="headerlink" title="3. 清除浮动"></a>3. 清除浮动</h3><p>在平常我们coding时候经常会发生子元素浮动而引起父级元素不能完全撑开的状况，解决办法:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 对父级元素添加以下样式：</div><div class="line">.parent&#123;</div><div class="line">   <span class="attr">overflow</span>:hidden;</div><div class="line">   zoom:<span class="number">1</span>; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="number">2.</span> 对父级元素添加以下样式：</div><div class="line">.parent:after&#123;</div><div class="line">    <span class="attr">content</span>: <span class="string">"."</span>;</div><div class="line">    display: block;</div><div class="line">    height: <span class="number">0</span>;</div><div class="line">    clear: both;</div><div class="line">    visibility: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="4-文本模糊效果"><a href="#4-文本模糊效果" class="headerlink" title="4. 文本模糊效果"></a>4. 文本模糊效果</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.blur &#123;</div><div class="line">   <span class="attr">color</span>: transparent;</div><div class="line">   text-shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">5</span>px rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.5</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="5-jquery遍历函数"><a href="#5-jquery遍历函数" class="headerlink" title="5. jquery遍历函数"></a>5. jquery遍历函数</h3><ol>
-<li>filter(expression)<br>过滤掉与expression参数值指定的标准不匹配（返回值为false）的元素集合，例子：</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'td'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.innerHTML.match(<span class="regexp">/^\d+$/</span>);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<ol>
-<li>map(callback)<br>将元素集合中的每一个元素调用回调函数，并将返回值收集到jQuery对象实例中，例子：</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> allIds = $(<span class="string">'div'</span>).map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> (<span class="keyword">this</span>.id==<span class="literal">undefined</span>)?<span class="literal">null</span>:<span class="keyword">this</span>.id;</div><div class="line">    &#125;).get();</div></pre></td></tr></table></figure>
-<ol>
-<li>each(callback)<br>遍历匹配集里所有的元素，为每一个元素调用传入的迭代函数，例子：</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<h3 id="6-iframe的bug"><a href="#6-iframe的bug" class="headerlink" title="6. iframe的bug"></a>6. iframe的bug</h3><p>使用iframe标签时，如果iframe标签不闭合，即<iframe src="http://www.baidu.com">会导致iframe标签后面的js代码不执行，所以iframe标签最好是写成：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;iframe src=<span class="string">""</span>&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></iframe></p>
-<h3 id="7-鼠标放在图片上，图片放大显示"><a href="#7-鼠标放在图片上，图片放大显示" class="headerlink" title="7. 鼠标放在图片上，图片放大显示"></a>7. 鼠标放在图片上，图片放大显示</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> imgWid = <span class="number">0</span> ;</div><div class="line"><span class="keyword">var</span> imgHei = <span class="number">0</span> ; <span class="comment">//变量初始化</span></div><div class="line"><span class="keyword">var</span> big = <span class="number">1.1</span>;<span class="comment">//放大倍数</span></div><div class="line">$(<span class="string">'.sw-con1,.sw-con2,.sw-con3'</span>).hover(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>);</div><div class="line">    <span class="keyword">var</span> imgWid2 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> imgHei2 = <span class="number">0</span>;<span class="comment">//局部变量</span></div><div class="line">    imgWid = $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).width();</div><div class="line">    imgHei = $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).height();</div><div class="line">    imgWid2 = imgWid * big;</div><div class="line">    imgHei2 = imgHei * big;</div><div class="line">    $(<span class="keyword">this</span>).find(<span class="string">'img'</span>).animate(&#123;</div><div class="line">        <span class="attr">width</span>: imgWid2,</div><div class="line">        <span class="attr">height</span>: imgHei2</div><div class="line">    &#125;,<span class="string">"slow"</span></div><div class="line">    );</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="keyword">this</span>).find(<span class="string">"img"</span>).stop().animate(&#123;<span class="string">"width"</span>:imgWid,<span class="string">"height"</span>:imgHei&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="8-解决img标签间距问题"><a href="#8-解决img标签间距问题" class="headerlink" title="8. 解决img标签间距问题"></a>8. 解决img标签间距问题</h3><p>关于img标签间距问题：<br>  多个img之间有间距，包含img标签的div之间有间距块级元素包含内联元素如图片文字等时，内联元素默认是和父级元素的baseline（基线）对齐的，而baseline又和父级元素底边有一定的距离（这个距离和font有关，不一定是5px），所以以上代码的效果中不同div之间有间隙，这是因为图片与父元素的底边有距离。说到baseline呢，其实它是vertical-align属性的默认值，vertical-align属性是设置元素的垂直排列的，用来定义行内元素的基线相对于该元素所在行的基线的垂直对齐，除了baseline对齐方式之外，还可以是sub | super | top | text-top | middle | bottom | text-bottom |inherit（任何的版本的Internet Explorer （包括 IE8）都不支持属性值 “inherit”）。</p>
-<p>　　知道了问题产生的原因，就好对症下药解决问题了，其实就是要消除baseline对齐方式产生的距离。所以，<br>　　方法1:很容易想到，把对齐方式改一下不就好了，于是设置img的vertical-align属性为bottom；</p>
-<p>　　方法2:就是上文说的给父元素加上font-size:0的属性，既然这个距离和font有关，那么把字体大小设为0，总该没有距离了吧；</p>
-<p>　　方法3：可由方法二想到，既然为0可以，那把行高设的很小可不可以呢？经试验发现，本例图片大小为200px，设line-height不大于12就能够消除间隙了，鉴于这个距离一般是5px，所以可以把line-height设为5px左右；</p>
-<p>　　另外一个间隙是多个img标签的左右间隙，是由于img标签是行内元素，而事实是当行内元素之间有“回车”、“tab”、“空格”时就会出现间隙。</p>
-<p>　　所以方法就是上文提到的，去掉img标签之间所有的空格，如果又不想把所有连续的行内元素写到一行，可以多行注释，把空格回车什么的注释掉，就像下图这样；当连续的行内元素不是img时，也可以通过设置父元素的font-size为0来消除左右间隙。<br>方法四：把img变成块级元素</p>
-<h3 id="9-移动端字体设置："><a href="#9-移动端字体设置：" class="headerlink" title="9. 移动端字体设置："></a>9. 移动端字体设置：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">     font-family: <span class="string">"Helvetica Neue"</span>, Helvetica, STHeiTi, sans-serif;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//使用rem单位时，html的字体一般设置</span></div><div class="line"> @media only screen and (min-width: <span class="number">641</span>px)</div><div class="line">     html &#123;</div><div class="line">         font-size: <span class="number">125</span>%!important;</div><div class="line">     &#125;</div><div class="line"> @media only screen and (min-width: <span class="number">561</span>px)</div><div class="line">     html &#123;</div><div class="line">         font-size: <span class="number">109</span>%!important;</div><div class="line">     &#125;</div><div class="line"> @media only screen and (min-width: <span class="number">481</span>px)</div><div class="line">     html &#123;</div><div class="line">         font-size: <span class="number">94</span>%!important;</div><div class="line">     &#125;</div><div class="line"> html &#123;</div><div class="line">     font-size: <span class="number">62.5</span>%;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h3 id="10-chrome浏览器，将html网页中input-file-元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。"><a href="#10-chrome浏览器，将html网页中input-file-元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。" class="headerlink" title="10. chrome浏览器，将html网页中input [file] 元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。"></a>10. chrome浏览器，将html网页中input [file] 元素css样式中的’cursor’属性设置为’pointer’，但是鼠标移上去后的形状还是箭头。</h3><p>解决办法：</p>
-<p>为input [file]元素添加css样式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">font-size：<span class="number">0</span>;</div><div class="line">cursor:pointer;</div></pre></td></tr></table></figure></p>
-<h3 id="11-模拟input-file-上传按钮，以及文件名获取方法如下："><a href="#11-模拟input-file-上传按钮，以及文件名获取方法如下：" class="headerlink" title="11. 模拟input[file]上传按钮，以及文件名获取方法如下："></a>11. 模拟input[file]上传按钮，以及文件名获取方法如下：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;a class="file-con" href="#"&gt;</div><div class="line">    选择文件</div><div class="line">    &lt;input id="orderFile" type="file" /&gt;</div><div class="line">&lt;/a&gt;</div><div class="line">&lt;style&gt;</div><div class="line">.file-con &#123;</div><div class="line">    vertical-align: middle;</div><div class="line">    text-align: center;</div><div class="line">    line-height: 32px;</div><div class="line">    color: #666;</div><div class="line">    text-decoration: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 80px;</div><div class="line">    height: 32px;</div><div class="line">    background: #f6f6f6;</div><div class="line">    position: relative;</div><div class="line">    overflow: hidden;</div><div class="line">    border: 1px solid #ccc;</div><div class="line">    border-radius: 5px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.file-con:hover &#123;</div><div class="line">    background: #efefef;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.file-con input &#123;</div><div class="line">    position: absolute;</div><div class="line">    right: 0;</div><div class="line">    top: 0;</div><div class="line">    opacity: 0;</div><div class="line">    filter: alpha(opacity=0);</div><div class="line">    width: 80px;</div><div class="line">    height: 32px;</div><div class="line">    outline: none;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *获取文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getFileName</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> pos1 = path.lastIndexOf(<span class="string">'/'</span>);</div><div class="line">        <span class="keyword">var</span> pos2 = path.lastIndexOf(<span class="string">'\\'</span>);</div><div class="line">        <span class="keyword">var</span> pos = <span class="built_in">Math</span>.max(pos1, pos2)</div><div class="line">        <span class="keyword">if</span> (pos &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> path;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> path.substring(pos + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="12-js判断电话号码运营商"><a href="#12-js判断电话号码运营商" class="headerlink" title="12. js判断电话号码运营商"></a>12. js判断电话号码运营商</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> isChinaMobile = <span class="regexp">/^1(3[4-9]|5[012789]|8[23478]|4[7]|7[8])\d&#123;8&#125;$/</span>; <span class="comment">//移动</span></div><div class="line"><span class="keyword">var</span> isChinaUnion = <span class="regexp">/^1(3[0-2]|5[56]|8[56]|4[5]|7[6])\d&#123;8&#125;$/</span>; <span class="comment">//联通</span></div><div class="line"><span class="keyword">var</span> isChinaTelcom = <span class="regexp">/^1(3[3])|(8[019])\d&#123;8&#125;$/</span>; <span class="comment">//电信</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">telphone</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(telphone.length !== <span class="number">11</span>)&#123;</div><div class="line">      alert(<span class="string">"未检测到正确的手机号码"</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">if</span>(isChinaMobile.test(telphone))&#123;</div><div class="line">        alert(<span class="string">"移动"</span>);</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(isChinaUnion.test(telphone))&#123;</div><div class="line">        alert(<span class="string">"联通"</span>);</div><div class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(isChinaTelcom.test(telphone))&#123;</div><div class="line">        alert(<span class="string">"电信"</span>);</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        alert(<span class="string">"未检测到正确的手机号码"</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">check(<span class="string">"1324****322"</span>);</div></pre></td></tr></table></figure>
-<p>###13. 纯css小三角形<br>html:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"dp_nav"</span>&gt;</div><div class="line">    &lt;li&gt;&lt;a href=""&gt;退出&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;<span class="regexp">/ul&gt;</span></div></pre></td></tr></table></figure></p>
-<p>样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.dp_nav</span> &#123;</div><div class="line">    <span class="attribute">display</span>:none;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">min-width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">0</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">1.5em</span>;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">    <span class="attribute">-webkit-border-radius</span>: <span class="number">6px</span>;</div><div class="line">    <span class="attribute">-moz-border-radius</span>: <span class="number">6px</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">6px</span>;</div><div class="line">    <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">-webkit-background-clip</span>: padding-box;</div><div class="line">    <span class="attribute">-moz-background-clip</span>: padding;</div><div class="line">    <span class="attribute">background-clip</span>: padding-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.dp_nav</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">border-left</span>: <span class="number">7px</span> solid transparent;</div><div class="line">    <span class="attribute">border-right</span>: <span class="number">7px</span> solid transparent;</div><div class="line">    <span class="attribute">border-bottom</span>: <span class="number">7px</span> solid <span class="number">#ccc</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: -<span class="number">7px</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">9px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.dp_nav</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">border-left</span>: <span class="number">6px</span> solid transparent;</div><div class="line">    <span class="attribute">border-right</span>: <span class="number">6px</span> solid transparent;</div><div class="line">    <span class="attribute">border-bottom</span>: <span class="number">6px</span> solid <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">top</span>: -<span class="number">6px</span>;</div><div class="line">    <span class="attribute">left</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1385,7 +1539,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/wills/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1402,7 +1556,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/wills/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
